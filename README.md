@@ -36,11 +36,11 @@ The integration file integrates the AMALTHEA parser  with SimGrid tool.
 e simulations, simulation reports are generated as mentioned in 2nd point, and Vite visualization tool displays the temporal output of the framework. To properly compile and run the 
 simulation, you will need to install the xerces library (http://xerces.apache.org/xerces-c/install-3.html).
 Before launching Compile_and_Execute.sh, you will need to check the paths in the files : Makefile and Compile_and_Execute.sh. 
----In the file "Makefile", set the following variables accordingly:
+	* In the file "Makefile", set the following variables accordingly:
       XERCES_DIR = /usr/local/xercesc311 : set the location of the xerces according to your system
       INSTALL_PATH = /usr/local/simgrid_dev : set the location of simgrid according to your system
 
---In the Compile_and_Ecxecute.sh, set the following variables accordingly:
+	*In the Compile_and_Ecxecute.sh, set the following variables accordingly:
      export LD_LIBRARY_PATH=/usr/local/simgrid_dev/lib/ : set the location of the simgrid library according to your system
 
 ## Details of the simulation
