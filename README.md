@@ -39,7 +39,6 @@ Before launching Compile_and_Execute.sh, you will need to check the paths in the
 	* In the file "Makefile", set the following variables accordingly:
       XERCES_DIR = /usr/local/xercesc311 : set the location of the xerces according to your system
       INSTALL_PATH = /usr/local/simgrid_dev : set the location of simgrid according to your system
-
 	*In the Compile_and_Ecxecute.sh, set the following variables accordingly:
      export LD_LIBRARY_PATH=/usr/local/simgrid_dev/lib/ : set the location of the simgrid library according to your system
 
