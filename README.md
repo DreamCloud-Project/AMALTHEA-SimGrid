@@ -1,9 +1,10 @@
 # cloud-simulator
 
-This repository contains the simulator used to simulate cloud applications described using the Amalthea application model on top of a cloud computing architecture. This simulator relies on simgrid, so you must first install it to run a simulation.
+This repository contains the simulator used to simulate cloud applications described using the Amalthea application model on top of a cloud computing architecture. Once you have unzipped the archive provided in this repository, follow the steps below to run a simulation.
 
-## Installing simgrid ##
+## Installing SimGrid ##
 
+This simulator relies on SimGrid, so you must first install it to run a simulation.
 Install the latest version of SimGrid (the latest stable version is 3.12 released in oct. 2015).
 
 The source of the latest version can be found at : 
