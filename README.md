@@ -58,3 +58,11 @@ the memory red/write bandwith)
 			- Simmulation_summary.out
 			- Execution_trace.out  
 			- simgrid.trace is used by vite to visualise the temporal behaviour of the simulation
+
+## Licence
+
+Report bugs at: dreamcloud-support@lirmm.fr  
+
+(C)2015 CNRS LIRMM  
+Adac Group LIRMM
+
