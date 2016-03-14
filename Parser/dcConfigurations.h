@@ -10,9 +10,4 @@
 //#define HPC_1_MODEL_XML "hpc1_old.amxmi"
 #define HPC_1_MODEL_XML "hpc1.amxmi" //HLRS with 32 MS_2 tasks
 #define HPC_2_C_MODEL_XML "hpc2_C.amxmi" //HLRS with 2 MS_2 tasks
-#define HPC_3_C_MODEL_XML "hpc3_C.amxmi" //HLRS with 3 MS_2 tasks
-#define HPC_4_C_MODEL_XML "hpc4_C.amxmi" //HLRS with 4 MS_2 tasks
-#define HPC_5_C_MODEL_XML "hpc5_C.amxmi" //HLRS with 5 MS_2 tasks
-#define HPC_6_C_MODEL_XML "hpc6_C.amxmi" //HLRS with 6 MS_2 tasks
-
 
