@@ -61,8 +61,9 @@ the memory red/write bandwith)
 
 ## Licence
 
-Report bugs at: dreamcloud-support@lirmm.fr  
+This software is made available under the  GNU Lesser General Public License v3.0
 
-(C)2015 CNRS LIRMM  
-Adac Group LIRMM
+Report bugs at: mcsim-support@lirmm.fr  
+
+(C)2015 CNRS LIRMM / Université de Montpellier
 
