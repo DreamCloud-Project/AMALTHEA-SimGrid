@@ -1,4 +1,4 @@
-# cloud-simulator
+# AMALTHEA-SimGrid
 
 This repository contains the simulator used to simulate cloud applications described using the Amalthea application model on top of a cloud computing architecture. Once you have unzipped the archive provided in this repository, follow the steps below to run a simulation.
 
