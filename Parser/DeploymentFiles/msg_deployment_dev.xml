@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+  <!-- The master process (with some arguments) -->
+  <process host="HOST_Frontend" function="master">
+	<argument value="7"/>       <!-- Number of Hosts -->
+     
+     <argument value="HOST_0_0"/>
+     <argument value="HOST_0_1"/>
+     <argument value="HOST_0_2"/>
+     <argument value="HOST_1_0"/>
+     <argument value="HOST_1_1"/>
+     <argument value="HOST_NAS"/>
+     <argument value="HOST_Frontend"/>
+	 
+	 <argument value="STORAGE_RAM_HOST_MEM_NODE0"/>
+	 <argument value="STORAGE_RAM_HOST_MEM_NODE1"/>
+	 <argument value="STORAGE_RAM_HOST_0_1"/>
+	 <argument value="STORAGE_SSD_HOST_0_1"/>
+	 <argument value="STORAGE_RAM_HOST_1_1"/>
+	 <argument value="STORAGE_SSD_HOST_1_1"/>
+	 <argument value="STORAGE_HDD_NAS"/> 
+     
+  </process>
+  <!-- The slave process (with no argument) -->
+  <process host="HOST_0_0" function="slave" on_failure="RESTART"/>
+  <process host="HOST_0_1" function="slave" on_failure="RESTART"/>
+  <process host="HOST_0_2" function="slave" on_failure="RESTART"/>
+  <process host="HOST_1_0" function="slave" on_failure="RESTART"/>
+  <process host="HOST_1_1" function="slave" on_failure="RESTART"/>
+  <process host="HOST_NAS" function="slave" on_failure="RESTART"/>
+  <process host="HOST_Frontend" function="slave" on_failure="RESTART"/>
+ 
+</platform>
+
+
+
+

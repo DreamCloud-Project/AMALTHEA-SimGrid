@@ -1,0 +1,123 @@
+#This file was generated using SimGrid-3.12.0
+#[./main --cfg=tracing:1 --cfg=tracing/msg/process:1 ]
+%EventDef PajeDefineContainerType 0
+%       Alias string
+%       Type string
+%       Name string
+%EndEventDef
+%EventDef PajeDefineVariableType 1
+%       Alias string
+%       Type string
+%       Name string
+%       Color color
+%EndEventDef
+%EventDef PajeDefineStateType 2
+%       Alias string
+%       Type string
+%       Name string
+%EndEventDef
+%EventDef PajeDefineEventType 3
+%       Alias string
+%       Type string
+%       Name string
+%EndEventDef
+%EventDef PajeDefineLinkType 4
+%       Alias string
+%       Type string
+%       StartContainerType string
+%       EndContainerType string
+%       Name string
+%EndEventDef
+%EventDef PajeDefineEntityValue 5
+%       Alias string
+%       Type string
+%       Name string
+%       Color color
+%EndEventDef
+%EventDef PajeCreateContainer 6
+%       Time date
+%       Alias string
+%       Type string
+%       Container string
+%       Name string
+%EndEventDef
+%EventDef PajeDestroyContainer 7
+%       Time date
+%       Type string
+%       Name string
+%EndEventDef
+%EventDef PajeSetVariable 8
+%       Time date
+%       Type string
+%       Container string
+%       Value double
+%EndEventDef
+%EventDef PajeAddVariable 9
+%       Time date
+%       Type string
+%       Container string
+%       Value double
+%EndEventDef
+%EventDef PajeSubVariable 10
+%       Time date
+%       Type string
+%       Container string
+%       Value double
+%EndEventDef
+%EventDef PajeSetState 11
+%       Time date
+%       Type string
+%       Container string
+%       Value string
+%EndEventDef
+%EventDef PajePushState 12
+%       Time date
+%       Type string
+%       Container string
+%       Value string
+%EndEventDef
+%EventDef PajePopState 13
+%       Time date
+%       Type string
+%       Container string
+%EndEventDef
+%EventDef PajeResetState 14
+%       Time date
+%       Type string
+%       Container string
+%EndEventDef
+%EventDef PajeStartLink 15
+%       Time date
+%       Type string
+%       Container string
+%       Value string
+%       StartContainer string
+%       Key string
+%EndEventDef
+%EventDef PajeEndLink 16
+%       Time date
+%       Type string
+%       Container string
+%       Value string
+%       EndContainer string
+%       Key string
+%EndEventDef
+%EventDef PajeNewEvent 17
+%       Time date
+%       Type string
+%       Container string
+%       Value string
+%EndEventDef
+0 1 0 ROUTER
+0 2 0 HOST
+0 12 0 LINK
+0 3 2 MSG_PROCESS
+2 4 3 MSG_PROCESS_STATE
+5 5 4 write "1 0 1"
+5 6 4 read "1 1 0"
+5 7 4 receive "1 0 0"
+5 8 4 send "0 0 1"
+5 9 4 task_execute "0 1 0"
+5 10 4 sleep "1 1 1"
+4 10 0 3 3 MSG_PROCESS_LINK
+4 11 0 3 3 MSG_PROCESS_TASK_LINK

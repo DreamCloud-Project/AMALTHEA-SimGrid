@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<central:AMALTHEA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:central="http://www.amalthea.itea2.org/model/1.1.0/central" xmlns:sw="http://www.amalthea.itea2.org/model/1.1.0/sw" xmi:id="_fcxuIKh_EeS_IYadhS1bfQ">
+  <swModel xmi:id="_i9QLQKh_EeS_IYadhS1bfQ">
+    <tasks xmi:id="_jy8dIKh_EeS_IYadhS1bfQ" name="T1">
+      <size xmi:id="_nJVKIKh_EeS_IYadhS1bfQ" numberBits="1024"/>
+      <deadline xmi:id="_mo0eEKh_EeS_IYadhS1bfQ" value="500" unit="ms"/>
+      <callGraph xmi:id="_O0po0KiAEeS_IYadhS1bfQ">
+        <graphEntries xsi:type="sw:CallSequence" xmi:id="_PtjmwKiAEeS_IYadhS1bfQ">
+          <calls xsi:type="sw:TaskRunnableCall" xmi:id="_QvPGMKiAEeS_IYadhS1bfQ" runnable="_yohxUKh_EeS_IYadhS1bfQ"/>
+        </graphEntries>
+      </callGraph>
+    </tasks>
+    <runnables xmi:id="_yohxUKh_EeS_IYadhS1bfQ" name="R1">
+      <runnableItems xsi:type="sw:LabelAccess" xmi:id="_CzVMAKiAEeS_IYadhS1bfQ" data="_8vcW8Kh_EeS_IYadhS1bfQ" access="write"/>
+    </runnables>
+    <labels xmi:id="_8vcW8Kh_EeS_IYadhS1bfQ" name="L1">
+      <size xmi:id="_DGJIYKiCEeS_IYadhS1bfQ" numberBits="16000"/>
+    </labels>
+  </swModel>
+  <stimuliModel xmi:id="_YfO3wKiAEeS_IYadhS1bfQ"/>
+</central:AMALTHEA>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<central:AMALTHEA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:central="http://www.amalthea.itea2.org/model/1.1.0/central" xmlns:stimuli="http://www.amalthea.itea2.org/model/1.1.0/stimuli" xmlns:sw="http://www.amalthea.itea2.org/model/1.1.0/sw" xmi:id="_fcxuIKh_EeS_IYadhS1bfQ">
+  <swModel xmi:id="_i9QLQKh_EeS_IYadhS1bfQ">
+    <tasks xmi:id="_jy8dIKh_EeS_IYadhS1bfQ" name="T1">
+      <size xmi:id="_nJVKIKh_EeS_IYadhS1bfQ" numberBits="1024"/>
+      <deadline xmi:id="_mo0eEKh_EeS_IYadhS1bfQ" value="500" unit="ms"/>
+      <callGraph xmi:id="_O0po0KiAEeS_IYadhS1bfQ">
+        <graphEntries xsi:type="sw:CallSequence" xmi:id="_PtjmwKiAEeS_IYadhS1bfQ">
+          <calls xsi:type="sw:TaskRunnableCall" xmi:id="_QvPGMKiAEeS_IYadhS1bfQ" runnable="_yohxUKh_EeS_IYadhS1bfQ"/>
+          <calls xsi:type="sw:InterProcessActivation" xmi:id="_jrf74KiAEeS_IYadhS1bfQ" stimulus="_ZihgwKiAEeS_IYadhS1bfQ"/>
+          <calls xsi:type="sw:InterProcessActivation" xmi:id="_nrZf8KiAEeS_IYadhS1bfQ" stimulus="_Z6Vj0KiAEeS_IYadhS1bfQ"/>
+        </graphEntries>
+      </callGraph>
+    </tasks>
+    <tasks xmi:id="_r2rDAKh_EeS_IYadhS1bfQ" name="T2" stimuli="_ZihgwKiAEeS_IYadhS1bfQ">
+      <size xmi:id="_r2rDAah_EeS_IYadhS1bfQ" numberBits="1024"/>
+      <deadline xmi:id="_r2rDAqh_EeS_IYadhS1bfQ" value="1000" unit="ms"/>
+      <callGraph xmi:id="_R47SIKiAEeS_IYadhS1bfQ">
+        <graphEntries xsi:type="sw:CallSequence" xmi:id="_R47SIaiAEeS_IYadhS1bfQ">
+          <calls xsi:type="sw:TaskRunnableCall" xmi:id="_R47SIqiAEeS_IYadhS1bfQ" runnable="_3GpicKh_EeS_IYadhS1bfQ"/>
+        </graphEntries>
+      </callGraph>
+    </tasks>
+    <tasks xmi:id="_r-2uoKh_EeS_IYadhS1bfQ" name="T3" stimuli="_Z6Vj0KiAEeS_IYadhS1bfQ">
+      <size xmi:id="_r-2uoah_EeS_IYadhS1bfQ" numberBits="1024"/>
+      <deadline xmi:id="_r-2uoqh_EeS_IYadhS1bfQ" value="1500" unit="ms"/>
+      <callGraph xmi:id="_TVKmoKiAEeS_IYadhS1bfQ">
+        <graphEntries xsi:type="sw:CallSequence" xmi:id="_TVKmoaiAEeS_IYadhS1bfQ">
+          <calls xsi:type="sw:TaskRunnableCall" xmi:id="_TVKmoqiAEeS_IYadhS1bfQ" runnable="_3XRYYKh_EeS_IYadhS1bfQ"/>
+        </graphEntries>
+      </callGraph>
+    </tasks>
+    <runnables xmi:id="_yohxUKh_EeS_IYadhS1bfQ" name="R1">
+      <runnableItems xsi:type="sw:LabelAccess" xmi:id="_AZzI0KiAEeS_IYadhS1bfQ" data="_8vcW8Kh_EeS_IYadhS1bfQ" access="write"/>
+      <runnableItems xsi:type="sw:LabelAccess" xmi:id="_CzVMAKiAEeS_IYadhS1bfQ" data="_-fq-cKh_EeS_IYadhS1bfQ" access="write"/>
+    </runnables>
+    <runnables xmi:id="_3GpicKh_EeS_IYadhS1bfQ" name="R2">
+      <runnableItems xsi:type="sw:LabelAccess" xmi:id="_FcnicKiAEeS_IYadhS1bfQ" data="_8vcW8Kh_EeS_IYadhS1bfQ"/>
+    </runnables>
+    <runnables xmi:id="_3XRYYKh_EeS_IYadhS1bfQ" name="R3">
+      <runnableItems xsi:type="sw:LabelAccess" xmi:id="_KYXDsKiAEeS_IYadhS1bfQ" data="_-fq-cKh_EeS_IYadhS1bfQ"/>
+    </runnables>
+    <labels xmi:id="_8vcW8Kh_EeS_IYadhS1bfQ" name="L1">
+      <size xmi:id="_DGJIYKiCEeS_IYadhS1bfQ" numberBits="16000"/>
+    </labels>
+    <labels xmi:id="_-fq-cKh_EeS_IYadhS1bfQ" name="L2">
+      <size xmi:id="_I74MsKiCEeS_IYadhS1bfQ" numberBits="16000"/>
+    </labels>
+  </swModel>
+  <stimuliModel xmi:id="_YfO3wKiAEeS_IYadhS1bfQ">
+    <stimuli xsi:type="stimuli:InterProcess" xmi:id="_ZihgwKiAEeS_IYadhS1bfQ" name="Stimulus_T2"/>
+    <stimuli xsi:type="stimuli:InterProcess" xmi:id="_Z6Vj0KiAEeS_IYadhS1bfQ" name="Stimulus_T3"/>
+  </stimuliModel>
+</central:AMALTHEA>

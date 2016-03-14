@@ -1,0 +1,24 @@
+# define the C compiler to use
+CC = g++
+
+# define any libraries to link into executable: #$(LIBS)
+#LIBS = -lm
+
+all: Post_process Paje_process
+
+# link the object files into executables
+Post_process : Post_process.o
+	$(CC) -o Post_process Post_process.o
+
+Paje_process : Paje_process.o
+	$(CC) -o Paje_process Paje_process.o
+
+# compile .c files in object ones but without linking
+Post_process.o: Post_process.cpp
+	$(CC) -o Post_process.o -c Post_process.cpp -W -Wall -ansi -pedantic
+
+Paje_process.o:Paje_process.cpp
+	$(CC) -o Paje_process.o -c Paje_process.cpp -W -Wall -ansi -pedantic
+
+clean:
+	rm -rf *.o *~ Post_process Paje_process

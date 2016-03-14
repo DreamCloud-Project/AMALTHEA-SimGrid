@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0'?>
+ <!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+ <platform version="3">
+ <AS  id="AS0"  routing="Full">
+   <!-- ljlkj -->
+
+
+
+
+   <!---------------------------------- DC ROUTERs ---------------------------------->
+   <router id="ROUTER_1"/>
+   <router id="ROUTER_2"/>
+   <router id="ROUTER_R2_00"/>
+   <router id="ROUTER_R2_10"/>
+   <router id="ROUTER_R1_NODE0"/>
+   <router id="ROUTER_R1_NODE1"/>
+   
+   <!---------------------------------- DC STORAGEs ---------------------------------->
+    <storage_type id="SSD" model="linear_no_lat" content_type="txt_unix"  size="128GiB">
+    <model_prop id="Bread" value="150MBps"/>
+    <model_prop id="Bwrite" value="150MBps" />
+    <model_prop id="Bconnection" value="150MBps" />
+    </storage_type>
+
+    <storage_type id="RAM" model="linear_no_lat" content_type="txt_unix"  size="16GiB">
+    <model_prop id="Bread" value="150MBps"/>
+    <model_prop id="Bwrite" value="150MBps" />
+    <model_prop id="Bconnection" value="150MBps" />
+    </storage_type>
+
+    <storage_type id="HDD" model="linear_no_lat" content_type="txt_unix"  size="1000GiB">
+    <model_prop id="Bread" value="150MBps"/>
+    <model_prop id="Bwrite" value="150MBps" />
+    <model_prop id="Bconnection" value="150MBps" />
+    </storage_type>
+
+ <!--  /home/toto/disk0_1.txt  -->
+   <storage id="STORAGE_RAM_HOST_MEM_NODE0" typeId="RAM" content="storage_input/disk0_1.txt" attach="HOST_MEM_NODE0" /> 
+   <storage id="STORAGE_RAM_HOST_MEM_NODE1" typeId="RAM" content="storage_input/disk0_1.txt" attach="HOST_MEM_NODE1" /> 
+   <storage id="STORAGE_RAM_HOST_0_1" typeId="RAM" content="storage_input/disk0_1.txt" attach="HOST_0_1" /> 
+   <storage id="STORAGE_SSD_HOST_0_1" typeId="SSD" content="storage_input/disk0_1.txt" attach="HOST_0_1" /> 
+   <storage id="STORAGE_RAM_HOST_1_1" typeId="RAM" content="storage_input/disk0_1.txt" attach="HOST_1_1" /> 
+   <storage id="STORAGE_SSD_HOST_1_1" typeId="SSD" content="storage_input/disk0_1.txt" attach="HOST_1_1" /> 
+   <storage id="STORAGE_HDD_NAS" typeId="HDD" content="storage_input/disk0_1.txt" attach="HOST_NAS" /> 
+
+   <!---------------------------------- DC HOSTs ---------------------------------->
+ <!-- We mount every host to each storage -->
+    
+    <host id="HOST_0_0" power="48Gf" core="10">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+    <host id="HOST_0_1" power="48Gf" core="10">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+	
+    <host id="HOST_0_2" power="4291Gf" core="1">
+      <prop id="watt_per_state" value="25.0:50.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+    <host id="HOST_1_0" power="48Gf" core="10">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+	
+    <host id="HOST_1_1" power="48Gf" core="10">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+    <!--For following two hosts, the FLOPS values are arbitrary-->
+    <host id="HOST_Frontend" power="480Gf" core="1">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+
+    <host id="HOST_NAS" power="480Gf" core="1">
+      <prop id="watt_per_state" value="100.0:200.0"/>
+      <prop id="watt_off" value="10"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+
+
+    <!-- Caution : the routes are not yet defined for each remote storage access -->
+
+
+    <!-- HOST_MEM_NODE0 will connect links with different bandwidths to the RAM of NODE0 -->
+
+    <!--  <host id="HOST_MEM_NODE0" power="480Gf" core="1"><mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="/my_storage_node_0"/></host>
+   -->
+
+
+    <!-- HOST_MEM_NODE1 will connect links with different bandwidths to the RAM of NODE1 -->
+
+    <!--    
+	 <host id="HOST_MEM_NODE1" power="480Gf" core="1"><mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="/my_storage_node_1"/></host>
+    -->
+
+
+    <!-- HOST_MEM_NODE0 will connect links with different bandwidths to the RAM of NODE0 -->
+    <host id="HOST_MEM_NODE0" power="480Gf" core="1">
+      <prop id="watt_per_state" value="0:0"/>
+      <prop id="watt_off" value="0"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+     </host>
+
+    <!-- HOST_MEM_NODE1 will connect links with different bandwidths to the RAM of NODE1 -->
+    <host id="HOST_MEM_NODE1" power="480Gf" core="1">
+      <prop id="watt_per_state" value="0:0"/>
+      <prop id="watt_off" value="0"/>
+      <mount storageId="STORAGE_SSD_HOST_0_1" name="STORAGE_SSD_HOST_0_1"/>
+      <mount storageId="STORAGE_RAM_HOST_0_1" name="STORAGE_RAM_HOST_0_1"/>
+      <mount storageId="STORAGE_SSD_HOST_1_1" name="STORAGE_SSD_HOST_1_1"/>
+      <mount storageId="STORAGE_RAM_HOST_1_1" name="STORAGE_RAM_HOST_1_1"/>
+      <mount storageId="STORAGE_HDD_NAS" name="STORAGE_HDD_NAS"/>
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE0" name="STORAGE_RAM_HOST_MEM_NODE0"/> 
+      <mount storageId="STORAGE_RAM_HOST_MEM_NODE1" name="STORAGE_RAM_HOST_MEM_NODE1"/>
+    </host>
+ 
+
+
+
+   
+   <!---------------------------------- DC LINKs ---------------------------------->
+   <link id="LINK_HOST_0_0" bandwidth="64GBps"/>
+   <link id="LINK_HOST_0_1" bandwidth="64GBps"/>
+   <link id="LINK_HOST_0_2" bandwidth="64GBps"/>
+   <link id="LINK_HOST_1_0" bandwidth="64GBps"/>
+   <link id="LINK_HOST_1_1" bandwidth="64GBps"/>
+   <link id="LINK_HOST_Frontend" bandwidth="64GBps"/>
+   <link id="LINK_HOST_NAS" bandwidth="64GBps"/>
+
+   <link id="LINK_QPI_HOST_00_HOST_01" bandwidth="64GBps" latency="1us"/>
+   <link id="LINK_QPI_HOST_10_HOST_11" bandwidth="64GBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_00_HOST_02" bandwidth="15760MBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_02_HOST_01" bandwidth="15760MBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_00_ROUTER_R1_NODE0" bandwidth="15760MBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_00_ROUTER_R2_00" bandwidth="15760MBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_10_ROUTER_R1_NODE1" bandwidth="15760MBps" latency="1us"/>
+   <link id="LINK_PCIe30_HOST_10_ROUTER_R2_10" bandwidth="15760MBps" latency="1us"/>   
+   <link id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0" bandwidth="56GBps" latency="1us"/>
+   <link id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1" bandwidth="56GBps" latency="1us"/>
+   <link id="LINK_4CH_HOST_00_HOST_MEM_NODE0" bandwidth="59.7GBps" latency="1us"/>
+   <link id="LINK_4CH_HOST_01_STORAGE_RAM_HOST_0_1" bandwidth="59.7GBps" latency="1us"/>
+   <link id="LINK_4CH_HOST_10_HOST_MEM_NODE1" bandwidth="59.7GBps" latency="1us"/>
+   <link id="LINK_4CH_HOST_11_STORAGE_RAM_HOST_1_1" bandwidth="59.7GBps" latency="1us"/>
+   <link id="LINK_ETH_ROUTER_2_HOST_Frontend" bandwidth="1GBps" latency="1us"/>
+   <link id="LINK_ETH_ROUTER_2_HOST_NAS" bandwidth="1GBps" latency="1us"/>
+   <link id="LINK_ETH_ROUTER_2_ROUTER_R2_00" bandwidth="1GBps" latency="1us"/>
+   <link id="LINK_ETH_ROUTER_2_ROUTER_R2_10" bandwidth="1GBps" latency="1us"/>
+   <link id="LINK_SATA_HOST_01_STORAGE_SSD_HOST_0_1" bandwidth="990MBps" latency="1us"/>
+   <link id="LINK_SATA_HOST_11_STORAGE_SSD_HOST_1_1" bandwidth="990MBps" latency="1us"/>
+   
+   <!-- arbitrary bandwidth values for the links. HLRS did not prvide yet -->
+   <link id="LINK_NAS_STORAGE_HDD_NAS" bandwidth="990MBps" latency="1us"/>
+   <link id="LINK_PCIe_DMA_HOST_MEM_NODE0_HOST_0_2" bandwidth="990MBps" latency="1us"/>
+   <link id="LINK_PCIe_DMA_HOST_MEM_NODE0_ROUTER_R1_NODE0" bandwidth="990MBps" latency="1us"/>
+   <link id="LINK_PCIe_DMA_HOST_MEM_NODE1_ROUTER_R1_NODE1" bandwidth="990MBps" latency="1us"/>
+   <link id="LINK_MEM_INTERFACE_HOST_MEM_NODE0_STORAGE_RAM_HOST_MEM_NODE0" bandwidth="1833MBps" latency="1us"/>
+   <link id="LINK_MEM_INTERFACE_HOST_MEM_NODE1_STORAGE_RAM_HOST_MEM_NODE1" bandwidth="1833MBps" latency="1us"/>
+
+
+   <!---------------------------------- DC ROUTEs ---------------------------------->
+<!-- Routes Master Hosts -->
+
+   <route src="HOST_Frontend" dst="HOST_0_0">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+   </route>
+
+   <route src="HOST_Frontend" dst="HOST_0_2">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/>
+   </route>
+
+   <route src="HOST_Frontend" dst="HOST_0_1">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+   </route>
+
+   <route src="HOST_Frontend" dst="HOST_NAS">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+   </route>
+
+   <route src="HOST_Frontend" dst="HOST_1_0">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+   </route>
+
+   <route src="HOST_Frontend" dst="HOST_1_1">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+
+ <!-- Routes interhosts -->
+
+   <route src="HOST_0_0" dst="HOST_1_0">
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+   </route>
+
+
+   <route src="HOST_0_0" dst="HOST_1_1">
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+
+
+   <route src="HOST_0_1" dst="HOST_1_0">
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+   </route>
+
+
+   <route src="HOST_0_2" dst="HOST_1_0">
+     <link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+   </route>
+
+
+   <route src="HOST_0_1" dst="HOST_1_1">
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+
+
+   <route src="HOST_0_2" dst="HOST_1_1">
+     <link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+
+
+<!-- NAS with everyone -->
+
+ <route src="HOST_NAS" dst="HOST_0_0">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+   </route>
+
+   <route src="HOST_NAS" dst="HOST_0_2">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/>
+   </route>
+
+   <route src="HOST_NAS" dst="HOST_0_1">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+   </route>
+
+
+   <route src="HOST_NAS" dst="HOST_1_0">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+   </route>
+
+   <route src="HOST_NAS" dst="HOST_1_1">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+
+   <!-- For storage accesses -->
+   
+   <route src="HOST_Frontend" dst="HOST_MEM_NODE0">
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/>
+   </route>
+
+
+
+   <!-- HOST_MEM_NODE1 with everyone -->
+   
+   
+   <route src="HOST_MEM_NODE1" dst="HOST_1_0">
+     <link_ctn id="LINK_4CH_HOST_10_HOST_MEM_NODE1"/>
+   </route>
+   
+   
+   <!-- <route src="HOST_MEM_NODE1" dst="HOST_1_0"><link_ctn id="LINK_4CH_HOST_10_HOST_MEM_NODE1"/></route> -->
+
+   <route src="HOST_MEM_NODE1" dst="HOST_1_1">
+     <link_ctn id="LINK_4CH_HOST_10_HOST_MEM_NODE1"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>
+   
+   
+   
+   
+ <route src="HOST_MEM_NODE1" dst="HOST_0_0">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R1_NODE0"/>
+   </route>
+ 
+   
+ <route src="HOST_MEM_NODE1" dst="HOST_0_1">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+   </route>
+   
+ <route src="HOST_MEM_NODE1" dst="HOST_0_2">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/>
+   </route>  
+   
+ <route src="HOST_MEM_NODE1" dst="HOST_NAS">
+     <link_ctn id="LINK_4CH_HOST_10_HOST_MEM_NODE1"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+   </route>  
+   
+   
+ <route src="HOST_MEM_NODE1" dst="HOST_Frontend">
+     <link_ctn id="LINK_4CH_HOST_10_HOST_MEM_NODE1"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+   </route>  
+ 
+   
+<!-- HOST_MEM_NODE0 with everyone -->
+ 
+ <!--
+ <route src="HOST_MEM_NODE0" dst="HOST_0_0">
+     <link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/>
+   </route>    redef
+ --> 
+ 
+ 
+ 
+ <route src="HOST_MEM_NODE0" dst="HOST_0_1">
+     <link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/>
+     <link_ctn id="LINK_QPI_HOST_00_HOST_01"/>
+   </route>
+   
+   
+   
+   <!--
+ <route src="HOST_MEM_NODE0" dst="HOST_0_2">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE0_HOST_0_2"/>
+   </route>    redef
+   -->
+   
+   
+   
+ <route src="HOST_MEM_NODE0" dst="HOST_1_0">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE0_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R1_NODE1"/>
+   </route>    
+   
+ <route src="HOST_MEM_NODE0" dst="HOST_1_1">
+     <link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE0_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/>
+     <link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R1_NODE1"/>
+     <link_ctn id="LINK_QPI_HOST_10_HOST_11"/>
+   </route>    
+   
+ <route src="HOST_MEM_NODE0" dst="HOST_NAS">
+     <link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/>
+   </route>   
+   
+   <!--
+ <route src="HOST_MEM_NODE0" dst="HOST_Frontend">
+     <link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/>
+     <link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/>
+     <link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/>
+  </route>    redef!!! 
+   -->
+     
+   
+   <route src="HOST_0_0" dst="HOST_0_2"><link_ctn id="LINK_PCIe30_HOST_00_HOST_02"/></route>
+   <route src="HOST_0_0" dst="ROUTER_R1_NODE0"><link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R1_NODE0"/></route>
+   <route src="HOST_0_0" dst="ROUTER_R2_00"><link_ctn id="LINK_PCIe30_HOST_00_ROUTER_R2_00"/></route>
+   <route src="HOST_0_0" dst="HOST_MEM_NODE0"><link_ctn id="LINK_4CH_HOST_00_HOST_MEM_NODE0"/></route>
+   <route src="HOST_0_0" dst="HOST_0_1"><link_ctn id="LINK_QPI_HOST_00_HOST_01"/></route>
+   <route src="HOST_1_0" dst="HOST_1_1"><link_ctn id="LINK_QPI_HOST_10_HOST_11"/></route>
+   <route src="HOST_1_0" dst="ROUTER_R2_10"><link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R2_10"/></route>
+   <route src="HOST_1_0" dst="ROUTER_R1_NODE1"><link_ctn id="LINK_PCIe30_HOST_10_ROUTER_R1_NODE1"/></route>
+   
+   <route src="HOST_0_2" dst="HOST_MEM_NODE0"><link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE0_HOST_0_2"/></route>
+   <route src="ROUTER_R1_NODE0" dst="HOST_MEM_NODE0"><link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE0_ROUTER_R1_NODE0"/></route>
+   <route src="ROUTER_R1_NODE1" dst="HOST_MEM_NODE1"><link_ctn id="LINK_PCIe_DMA_HOST_MEM_NODE1_ROUTER_R1_NODE1"/></route>
+   <route src="HOST_0_1" dst="HOST_0_2"><link_ctn id="LINK_PCIe30_HOST_02_HOST_01"/></route>
+   <route src="ROUTER_1" dst="ROUTER_R1_NODE0"><link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE0"/></route>
+   <route src="ROUTER_1" dst="ROUTER_R1_NODE1"><link_ctn id="LINK_FDR_IB_ROUTER_1_ROUTER_R1_NODE1"/></route>
+   <route src="ROUTER_2" dst="HOST_Frontend"><link_ctn id="LINK_ETH_ROUTER_2_HOST_Frontend"/></route>
+   <route src="ROUTER_2" dst="HOST_NAS"><link_ctn id="LINK_ETH_ROUTER_2_HOST_NAS"/></route>
+   <route src="ROUTER_2" dst="ROUTER_R2_00"><link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_00"/></route>
+   <route src="ROUTER_2" dst="ROUTER_R2_10"><link_ctn id="LINK_ETH_ROUTER_2_ROUTER_R2_10"/></route>
+   
+ </AS>
+ </platform>
+ 
